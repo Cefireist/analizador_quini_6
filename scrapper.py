@@ -102,7 +102,10 @@ for i, fecha in enumerate(resultados["fecha_str"]):
         
         datos.append(row)
 
+
+
 df = pd.DataFrame(datos)
+df['fecha'] = pd.to_datetime(df['fecha'], format='%d-%m-%Y').dt.strftime('%Y-%m-%d')
 df.to_csv(ruta_csv, index=False)
 
 
